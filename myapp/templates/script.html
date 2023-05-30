@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Execute Query</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Execute Query</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="query">Enter SQL query:</label>
+                <textarea class="form-control" name="query" rows="5" cols="50"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Execute</button>
+        </form>
+
+        {% if query %}
+            <h2 class="mt-4">Query: {{ query }}</h2>
+
+            {% if result %}
+                <h3 class="mt-4">Result:</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            {% for column in columns %}
+                                <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in result %}
+                            <tr>
+                                {% for value in row %}
+                                    <td>{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="mt-4">No results found.</p>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <!-- Add Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

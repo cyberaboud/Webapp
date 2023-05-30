@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ActivitesDept List</title>
+</head>
+<body>
+  <h1>ActivitesDept List</h1>
+  <ul>
+    {% for activitesdept in activitesdepts %}
+      <li>{{ activitesdept.numAct }} - {{ activitesdept.typeD }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

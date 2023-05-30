@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alertes List</title>
+</head>
+<body>
+  <h1>Alertes List</h1>
+  <ul>
+    {% for alerte in alertes %}
+      <li>{{ alerte.type }} - {{ alerte.delais }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

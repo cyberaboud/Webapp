@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>department List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Num</th>
+                <th scope="col">Nom</th>
+                <th scope="col">NumChef</th>
+                <th scope="col">NumAgenda</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for departement in departements %}
+            <tr>
+                <td>{{ departement.num }}</td>
+                <td>{{ departement.nom }}</td>
+                <td>{{ departement.numChef }}</td>
+                <td>{{ departement.numAgendaDept }}</td>
+                <td><a type="button" class="btn btn-warning" href="/departements/update/{{ departement.num }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/departements/delete/{{ departement.num }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'add_departement' %}">Create</a>
+</div>
+{% endblock %}
+view raw

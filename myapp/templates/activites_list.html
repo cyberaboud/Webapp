@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>activites List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Num</th>
+                <th scope="col">Nom</th>
+                <th scope="col">NumChef</th>
+                <th scope="col">NumAgenda</th>
+                <th scope="col">Num</th>
+                <th scope="col">Num</th>
+                <th scope="col">Num</th>
+                <th scope="col">Num</th>
+                <th scope="col">Num</th>
+                <th scope="col">Num</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activites in activites %}
+            <tr>
+                <td>{{ activites.numActivite }}</td>
+                <td>{{ activites.typeA }}</td>
+                <td>{{ activites.description }}</td>
+                <td>{{ activites.dateAct }}</td>
+                <td>{{ activites.hDebut }}</td>
+                <td>{{ activites.hFin }}</td>
+                <td>{{ activites.dateCreation }}</td>
+                <td>{{ activites.createur }}</td>
+                <td>{{ activites.visible }}</td>
+                <td>{{ activites.numAgenda }}</td>
+
+                <td><a type="button" class="btn btn-warning" href="/activitess/update/{{ activites.numActivite }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/activitess/delete/{{ activites.numActivite }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'add_activites' %}">Create</a>
+</div>
+{% endblock %}
+view raw

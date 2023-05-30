@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Absent List</title>
+</head>
+<body>
+  <h1>Absent List</h1>
+  <ul>
+    {% for absent in absents %}
+      <li>{{ absent.numEmploye.nom }} {{ absent.numEmploye.prenom }} - {{ absent.numActDept.numAct }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

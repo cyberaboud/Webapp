@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>employe List</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">numEmploye</th>
+                <th scope="col">nom</th>
+                <th scope="col">prenom</th>
+                <th scope="col">telIntern</th>
+                <th scope="col">email</th>
+                <th scope="col">niveau</th>
+                <th scope="col">numDept</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employe in employes %}
+            <tr>
+                <td>{{ employe.numEmploye }}</td>
+                <td>{{ employe.nom }}</td>
+                <td>{{ employe.prenom }}</td>
+                <td>{{ employe.telIntern }}</td>
+                <td>{{ employe.email }}</td>
+                <td>{{ employe.niveau }}</td>
+                <td>{{ employe.numDept }}</td>
+                <td><a type="button" class="btn btn-warning" href="/employes/update/{{ employe.numEmploye }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/employes/delete/{{ employe.numEmploye }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'add_employe' %}">Create</a>
+</div>
+{% endblock %}
+view raw

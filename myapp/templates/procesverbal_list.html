@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proces Verbal List</title>
+</head>
+<body>
+  <h1>Proces Verbal List</h1>
+  <ul>
+    {% for procesverbal in procesverbals %}
+      <li>{{ procesverbal.NumProcesV }} - {{ procesverbal.resum }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

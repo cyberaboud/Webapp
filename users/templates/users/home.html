@@ -1,0 +1,32 @@
+{% extends "users/base.html" %}
+{% block title %} Home Page {% endblock title%}
+{% block content %}
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Welcome to CyberAZ</h1>
+        <p class="lead">
+            Your Trusted Cybersecurity Enterprise
+        </p>
+        <hr class="my-4">
+        {% if user.is_authenticated %}
+            <p class="lead">Welcome, {{ user.username }}!</p>
+            <div class="d-flex justify-content-center mt-4">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-primary btn-lg mr-2" href="/departements/" role="button">View Departements</a>
+                    <a class="btn btn-primary btn-lg mr-2" href="/employes/" role="button">View Employees</a>
+                    <a class="btn btn-primary btn-lg mr-2" href="/script/" role="button">Execute Query</a>
+                    <a class="btn btn-danger btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
+                </div>
+            </div>
+        {% else %}
+            <p class="lead">
+                This is the home page of CyberAZ. Please sign in or create an account to access the features.
+            </p>
+            <div class="d-flex justify-content-center mt-4">
+                <div class="btn-group" role="group">
+                    <a class="btn btn-primary btn-lg mr-2" href="{% url 'login' %}" role="button">Sign in</a>
+                    
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock content %}

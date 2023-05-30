@@ -1,0 +1,12 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Delete Departement</h1>
+  <p>Are you sure you want to delete the departement "{{ departement.nom }}"?</p>
+  <form method="post" action="{% url 'departement_delete' departement.id %}">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+  </form>
+  <a href="{% url 'departement_list' %}">Cancel</a>
+{% endblock %}

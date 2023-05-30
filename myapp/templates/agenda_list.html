@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Agenda List</title>
+</head>
+<body>
+  <h1>Agenda List</h1>
+  <ul>
+    {% for agenda in agendas %}
+      <li>{{ agenda.numAgenda }} - {{ agenda.dateMAJ }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

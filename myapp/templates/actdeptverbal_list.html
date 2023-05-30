@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ActDeptVerbal List</title>
+</head>
+<body>
+  <h1>ActDeptVerbal List</h1>
+  <ul>
+    {% for actdeptverbal in actdeptverbals %}
+      <li>{{ actdeptverbal.numAct.numAct }} - {{ actdeptverbal.numProcesV.NumProcesV }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
